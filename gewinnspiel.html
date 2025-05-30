@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gewinnspiel</title>
+    <link rel="stylesheet" href="css/style_gewinnspiel.css" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <!--header-->
+      <header class="site-header">
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo" />
+        </div>
+        <nav class="main-nav">
+          <a href="home.html">Home</a>
+          <a href="produkte.html">Produkte</a>
+          <a href="gewinnspiel.html" class="active">Gewinnspiel</a>
+        </nav>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <main class="site-content">
+        <div class="flex-wrapper">
+          <!-- GEWINNSPIEL -->
+          <section class="gewinnspiel-area">
+            <h2>GEWINNSPIEL</h2>
+
+            <div id="game-wrapper">
+              <!-- Start Overlay -->
+              <div id="blur-overlay" class="overlay">
+                <button id="start-button" class="start-button">
+                  Start Game
+                </button>
+              </div>
+
+              <!-- Game Over Overlay -->
+              <div id="game-over-overlay" class="overlay hidden">
+                <div class="overlay-content">
+                  <p>Game Over!🫣</p>
+                  <p>Dein Score: <span id="final-score">0</span></p>
+                  <button id="restart-button" class="start-button">
+                    Neu starten
+                  </button>
+                </div>
+              </div>
+
+              <!-- Das eigentliche Spiel -->
+              <div id="game">
+                <div id="dino"></div>
+                <div id="rock"></div>
+              </div>
+            </div>
+
+            <h1 id="score">0</h1>
+          </section>
+
+          <!-- ALISHA FORMULAR -->
+          <section class="kontaktbereich">
+            <h3>Kontaktdaten</h3>
+            <form id="gewinnspiel-form">
+              <div class="form-row">
+                <input
+                  type="text"
+                  name="vorname"
+                  placeholder="Vorname"
+                  required
+                />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Nachname"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="E-Mail"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <input type="text" name="score" placeholder="Score" required />
+              </div>
+              <button type="submit">Absenden</button>
+            </form>
+
+            <!-- Spinner -->
+            <div id="spinner" style="display: none">⏳ Wird gespeichert...</div>
+
+            <!-- Fehleranzeige -->
+            <div id="fehler" style="color: red"></div>
+          </section>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-logo">🛒</div>
+        <div class="footer-links">
+          <p>lets stay in touch!</p>
+        </div>
+        <div class="social-dots">
+          <span class="dot"></span>
+          <span class="dot"></span><
+          <span class="dot"></span>
+        </div>
+      </footer>
+    </div>
+    <script src="js/Gewinnspiel.js"></script>
+    <script src="js/databaseClient.js"></script>
+    <script src="js/formular.js"></script>
+  </body>
+</html>
