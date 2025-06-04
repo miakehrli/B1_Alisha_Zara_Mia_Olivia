@@ -1,0 +1,176 @@
+/*  GOOGLE FONTS IMPORT  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+
+/*  BASIS-STYLES (MOBILE FIRST)  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/*  HERO (HEADER-BEREICH)  */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "oswald", "bold";
+}
+
+.hero button {
+  background: #ccc;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+/* HERO-IMAGE */
+.hero-image .image-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: #ddd;
+  margin-top: 2rem;
+}
+
+/*  IMAGE SLIDER  */
+.slider {
+  width: 100vw;
+  height: 100vh; /* Oder z.B. 400px */
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.slides {
+  display: flex;
+  width: calc(6 * 100vw); /* 6 Bilder á 100vw */
+  animation: scrollLoop 300s linear infinite;
+}
+
+.slides img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Slider Text Layer */
+.slider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 0; /* Entfernt Padding */
+  margin: 0;
+  line-height: 1; /* Reduziert Zeilenhöhe */
+  font-family: "Montserrat", sans-serif; /* Einmal zentral definieren */
+}
+
+.slider-text h1 {
+  font-size: 15rem;
+  margin: 0; /* Kein Abstand unten */
+  line-height: 1; /* Enger Text */
+  animation: floatFade 4s ease-in-out infinite; /* Animation für sanftes Schweben */
+}
+
+.slider-text button {
+  margin: 0;
+  margin-top: -1rem; /* Optional: Negativer Abstand, falls nötig */
+  font-size: clamp(1rem, 4vw, 2rem);
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #d57cb5;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.3s;
+}
+
+/* Hover-Effekt: Farben invertieren */
+.slider-text button:hover {
+  background-color: #7f5cd0;
+  border-color: #7f5cd0;
+}
+
+/* Slider Beschreibungstext */
+.slider-description {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: white;
+  margin: 1rem auto;
+  max-width: 1000px;
+  text-align: center;
+  line-height: 1.4;
+  display: block;
+  padding: 3rem;
+}
+
+/* === RESPONSIVE (DESKTOP) === */
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-image .image-placeholder {
+    height: 500px;
+  }
+
+  .site-footer {
+    padding: 2rem;
+  }
+
+  .footer-links p {
+    font-size: 1.1rem;
+  }
+}
+
+/* RESPONSIVE (MOBILE)  */
+@media screen and (max-width: 767px) {
+  .slider-text h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    margin-bottom: 2rem; /* Abstand zwischen Überschrift und Button */
+  }
+
+  .slider-text {
+    padding: 1rem;
+  }
+}
+
+/*  KEYFRAMES  */
+/* Endloses, langsames Gleiten der Bilder nach links */
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-300vw); /* Nur halbe Breite -> Wiederholung setzt ein */
+  }
+}
+
+/* Sanftes Auf- und Abschweben mit leichtem Fading */
+@keyframes floatFade {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}

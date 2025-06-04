@@ -1,0 +1,200 @@
+/* GLOBAL STYLES */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: white;
+  text-align: center;
+  background-image: url("../images/blur%20background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: black;
+}
+
+/* HEADER */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* Logo links, Nav rechts */
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: black;
+  height: 80px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: white; /* Schrift weiss */
+  background-color: black; /* Hintergrund schwarz */
+  padding: 0.4rem 1.2rem; /* etwas mehr horizontaler Abstand */
+  border-radius: 12px; /* schön abgerundete Ecken */
+  font-weight: bold;
+  border: 2px solid white; /* weisser Rahmen */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Hover-Effekt: Farben invertieren */
+.main-nav a:hover {
+  background-color: #d57cb5;
+  color: white;
+  border-color: #d57cb5;
+}
+
+/* Welche class ist aktiv? */
+.main-nav a.active {
+  background-color: #d57cb5;
+  color: white;
+  border-color: #d57cb5;
+}
+
+/* === RESPONSIVE (MOBILE) === */
+@media screen and (max-width: 767px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .main-nav a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* FOOTER */
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #111;
+  color: white;
+  gap: 1rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.site-footer .logo img {
+  height: 60px;
+  width: auto;
+}
+
+.footer-links p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.social-dots {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-dots img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Optional: Responsive – z. B. für grössere Screens */
+@media screen and (min-width: 768px) {
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    text-align: left;
+  }
+}
+
+.footer-links {
+  flex: 1;
+  text-align: center; /* Neu: auch auf grossen Bildschirmen zentriert */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Seite soll mindestens die Höhe des Bildschirms haben */
+}
+
+main {
+  flex: 1; /* Damit der Hauptinhalt den verfügbaren Raum füllt */
+}
+
+
+/*  BURGER & NAVIGATION TOGGLING  */
+.burger {
+  display: none; /* Standardmässig ausgeblendet, sichtbar nur mobil */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile Design */
+@media screen and (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+
+  .main-nav {
+    display: none; /* WICHTIG: verstecke das Menü standardmässig */
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .main-nav.active {
+    display: flex; /*  Wird durch JS eingeblendet */
+  }
+
+  .main-nav a {
+    width: 80%;
+    text-align: center;
+  }
+}
